@@ -148,19 +148,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-# Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # Required for collectstatic
+STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),  # Your manual static files
+# ]
 
-# Media (uploaded files)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = "media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOCALE_PATHS = [BASE_DIR / "locale"]  # Ensure you have this line
 
 CSRF_TRUSTED_ORIGINS = [
     'https://4b6d806f21bf.ngrok-free.app',
@@ -169,6 +171,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://9e2cf8ea8f42.ngrok-free.app',
     'https://e0539b219772.ngrok-free.app',
     'https://2100dfa77a76.ngrok-free.app',
+    'https://campaigns-production-1383.up.railway.app',
 ]
 
 # Auth
@@ -193,6 +196,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "https://3ad99fb5c246.ngrok-free.app",
+    "https://campaigns-production-1383.up.railway.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
