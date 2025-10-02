@@ -170,7 +170,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://9e2cf8ea8f42.ngrok-free.app',
     'https://e0539b219772.ngrok-free.app',
     'https://2100dfa77a76.ngrok-free.app',
-    'https://campaigns-production-1383.up.railway.app',
+    'https://campaigns-production-7677.up.railway.app',
 ]
 
 # Auth
@@ -195,7 +195,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "https://3ad99fb5c246.ngrok-free.app",
-    "https://campaigns-production-1383.up.railway.app",
+    "https://campaigns-production-7677.up.railway.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
