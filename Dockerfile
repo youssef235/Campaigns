@@ -4,7 +4,9 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 WORKDIR /campaigns_server
-COPY . /campaigns_server/
+
+# Copy only requirements first (to use Docker cache)
+COPY requirements.txt /campaigns_server/
 
 RUN apt-get update && apt-get install -y \
     gcc \
@@ -19,10 +21,12 @@ ENV PATH="/opt/venv/bin:$PATH"
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
+# Now copy the rest of the app
+COPY . /campaigns_server/
+
 # Copy entrypoint and make it executable
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 EXPOSE 9000
-
 ENTRYPOINT ["/entrypoint.sh"]
