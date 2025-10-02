@@ -5,11 +5,12 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /campaigns_server
 
-# Copy only requirements first (to use Docker cache)
+# Copy only requirements first (for caching)
 COPY requirements.txt /campaigns_server/
 
 RUN apt-get update && apt-get install -y \
     gcc \
+    g++ \
     libpq-dev \
     python3-dev \
     python3-venv \
@@ -24,7 +25,6 @@ RUN pip install -r requirements.txt
 # Now copy the rest of the app
 COPY . /campaigns_server/
 
-# Copy entrypoint and make it executable
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
